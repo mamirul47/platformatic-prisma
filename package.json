@@ -1,6 +1,6 @@
 {
   "name": "platformaticdb-prisma",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate migrations for your Platformatic DB using a Prisma schema",
   "bin": {
     "platformaticdb-prisma": "index.mjs"

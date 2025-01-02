@@ -19,7 +19,7 @@ View the [example project](./example) to see it in action.
 Install `platformatic-prisma` and `prisma`:
 
 ```
-npm install prisma platformatic-prisma -D
+npm install prisma platformaticdb-prisma -D
 ```
 
 Create a `./prisma/schema.prisma` file with the following contents:
