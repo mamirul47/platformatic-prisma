@@ -1,6 +1,10 @@
 # Platformatic Prisma
 
-[![npm version](https://badge.fury.io/js/platformatic-prisma.svg)](https://www.npmjs.com/package/platformatic-prisma)
+this repo is fork from the original https://github.com/kgajera/platformatic-prisma
+
+to repo created to update the platformatic version 2.30.X and using prisma 6.X.X
+
+[![npm version](https://badge.fury.io/js/platformaticdb-prisma.svg)](https://www.npmjs.com/package/platformaticdb-prisma)
 
 Remove the friction to create migrations for your [Platformatic DB](https://oss.platformatic.dev/docs/reference/db/introduction) by generating them using a [Prisma schema](https://www.prisma.io/docs/concepts/components/prisma-schema).
 
