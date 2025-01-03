@@ -86,3 +86,48 @@ You also can create a script in package.json
   },
 
 ```
+
+to import a platformatic db to your current fastify v5 project just add this file 
+
+```json
+{
+    "$schema": "https://schemas.platformatic.dev/@platformatic/db/2.30.1.json",
+    "db": {
+      "connectionString": "{PLT_DATABASE_URL}",
+      "graphql": true,
+      "openapi": true,
+      "schemalock": true
+    },
+    "migrations": {
+      "dir": "migrations",
+      "autoApply": "{PLT_APPLY_MIGRATIONS}"
+    },
+    "server": {
+      "hostname": "{PLT_SERVER_HOSTNAME}",
+      "port": "{PORT}"
+    },
+    "plugins": {
+      "paths": [
+        {
+          "path": "./src/plugins",
+          "encapsulate": false
+        },
+        {
+          "path": "./src/routes"
+        }
+      ],
+      "typescript": "{PLT_TYPESCRIPT}"
+    },
+    "types": {
+      "autogenerate": true
+    }
+  }
+
+```
+
+then run this to install all dependency for enable platformatic db to your fastify v5 project
+
+```bash
+npm i platformatic@latest
+npm i -D @platformatic/db
+```
