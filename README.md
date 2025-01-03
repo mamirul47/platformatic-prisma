@@ -55,7 +55,7 @@ DATABASE_URL="postgresql://postgres:@localhost:5432/platformatic-prisma?schema=p
 > **Note**
 > If you are just starting with a new Platformatic DB project, run `npx platformatic db migrate` before generating your first migration. This is needed to allow Platformatic DB to initialize the database with it's migrations table.
 
-When changes are made to your `schema.prisma` file, run `npx platformatic-prisma` to generate migrations. This will generate up and down migration files in the migrations directory that is specified in your Platformatic [configuration file](https://oss.platformatic.dev/docs/reference/db/configuration#configuration-file).
+When changes are made to your `schema.prisma` file, run `npx platformaticdb-prisma` to generate migrations. This will generate up and down migration files in the migrations directory that is specified in your Platformatic [configuration file](https://oss.platformatic.dev/docs/reference/db/configuration#configuration-file).
 
 To run migrations, refer to [Platformatic's documentation](https://oss.platformatic.dev/docs/reference/db/migrations).
 
@@ -67,3 +67,22 @@ To run migrations, refer to [Platformatic's documentation](https://oss.platforma
 | `--no-down`     | No       | Prevents generation of the down migration file.                   | `false`                |
 | `--no-up`       | No       | Prevents generation of the up migration file.                     | `false`                |
 | `--schema`      | No       | Specifies the path to the `schema.prisma` file.                   | `prisma/schema.prisma` |
+
+
+You also can create a script in package.json
+
+```json
+ "scripts": {
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register \"test/**/*.ts\"",
+    "start": "npm run build:ts && fastify start -l info dist/app.js",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
+    "pdb": "platformatic start",
+    "pdbb": "platformatic compile",
+    "pdbc": "rm -fr ./dist",
+    "migrate": "platformaticdb-prisma"
+  },
+
+```
